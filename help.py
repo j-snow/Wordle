@@ -53,7 +53,11 @@ while not solved:
 		value = int(result[1])
 		print('Check: ' + letter + '(' + str(value) + ')')
 		if value == 0:
-			words_five = [word for word in words_five if letter != word[letter_num]]
+			if attempted_word.count(letter) == 1:
+				words_five = [word for word in words_five if letter not in word]
+			else:
+				words_five = [word for word in words_five if letter != word[letter_num]]
+			# TODO: does not count none doubles
 			print_words(words_five)
 		if value == 1:
 			words_five = [word for word in words_five if letter in word]
@@ -66,4 +70,5 @@ while not solved:
 
 		letter_num = letter_num + 1
 
+	# TODO, somehow we get duplicated words
 	print_words(words_five)
