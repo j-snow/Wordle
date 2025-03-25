@@ -1,6 +1,13 @@
 import nltk
 from nltk.corpus import words
 
+
+def print_words(words):
+	num_words = len(words)
+	print(str(num_words) + ' words')
+	print(words[:100])
+
+
 nltk.download('words')
 
 solved = False
@@ -33,21 +40,16 @@ while not solved:
 		print('Check: ' + letter + '(' + str(value) + ')')
 		if value == 0:
 			words_five = [word for word in words_five if letter != word[letter_num]]
-			print(str(len(words_five)) + ' possibilities')
-			print(words_five[:20])
+			print_words(words_five)
 		if value == 1:
 			words_five = [word for word in words_five if letter in word]
-			print(str(len(words_five)) + ' possibilities')
-			print(words_five[:20])
+			print_words(words_five)
 			words_five = [word for word in words_five if letter != word[letter_num]]
-			print(str(len(words_five)) + ' possibilities')
-			print(words_five[:20])
+			print_words(words_five)
 		if value == 2:
 			words_five = [word for word in words_five if letter == word[letter_num]]
-			print(str(len(words_five)) + ' possibilities')
-			print(words_five[:20])
+			print_words(words_five)
 
 		letter_num = letter_num + 1
 
-	print(str(len(words_five)) + ' possibilities')
-	print(words_five[:20])
+	print_words(words_five)
