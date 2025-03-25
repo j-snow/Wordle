@@ -1,9 +1,12 @@
 import nltk
 from nltk.corpus import words
 
+nltk.download('words')
+
 word_list = words.words()
 
 words_five = [word.lower() for word in word_list if len(word) == 5]
+words_five = list(set(words_five))
 
 letter_frequencies = {}
 for word in words_five:
@@ -26,9 +29,6 @@ def print_words(words):
 	num_words = len(words)
 	print(str(num_words) + ' words')
 	print(words[:100])
-
-
-nltk.download('words')
 
 solved = False
 wordle = (None, None, None, None, None)
@@ -70,5 +70,4 @@ while not solved:
 
 		letter_num = letter_num + 1
 
-	# TODO, somehow we get duplicated words
 	print_words(words_five)
