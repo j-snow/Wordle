@@ -1,8 +1,7 @@
 import nltk
 from nltk.corpus import words
 
-nltk.data.path.append('/Users/jake/nlt/words')
-nltk.download('words', download_dir='/Users/jake/nlt/words')
+nltk.download('words')
 
 solved = False
 wordle = (None, None, None, None, None)
