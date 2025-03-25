@@ -2,7 +2,7 @@ import nltk
 from nltk.corpus import words
 
 nltk.download('words')
-
+# TODO Find a better source of words, some of these are not in wordle's dictionary
 word_list = words.words()
 
 words_five = [word.lower() for word in word_list if len(word) == 5]
@@ -21,6 +21,7 @@ letter_score = sorted(letter_frequencies, key=lambda x: letter_frequencies[x], r
 word_scores = [(word, sum([letter_score.index(letter) for letter in word]), len(set(word))) for word in words_five]
 word_scores = sorted(word_scores, key=lambda tup: tup[1])
 word_scores = sorted(word_scores, key=lambda tup: tup[2], reverse=True)
+# TODO sort by position likelihood
 print(word_scores[:20])
 words_five = [word_score_tuple[0] for word_score_tuple in word_scores]
 print(words_five[:20])
