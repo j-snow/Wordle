@@ -39,12 +39,10 @@ possible = []
 while not solved:
 	attempt = input("Input: ")
 
-	if len(attempt) != 11:
-		print('Unknown input')
-		continue
+	if len(attempt) != 11 or attempt[5] != ',':
+		exit(0)
 
-	attempted_word = attempt[0:5]
-	result = attempt[6:11]
+	attempted_word, result = attempt.split(',')
 
 	results = zip(attempted_word, result)
 
