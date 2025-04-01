@@ -15,7 +15,6 @@ def whittle_down(attempted_word, result, five_letter_words):
 				five_letter_words = [word for word in five_letter_words if letter not in word]
 			else:
 				five_letter_words = [word for word in five_letter_words if letter != word[letter_num]]
-			# TODO: does not count none doubles
 		if value == 1:
 			five_letter_words = [word for word in five_letter_words if letter in word]
 			five_letter_words = [word for word in five_letter_words if letter != word[letter_num]]
