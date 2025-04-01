@@ -22,14 +22,14 @@ word_scores = [(word, sum([letter_score.index(letter) for letter in word]), len(
 word_scores = sorted(word_scores, key=lambda tup: tup[1])
 word_scores = sorted(word_scores, key=lambda tup: tup[2], reverse=True)
 # TODO sort by position likelihood
-print(word_scores[:20])
 words_five = [word_score_tuple[0] for word_score_tuple in word_scores]
-print(words_five[:20])
 
 def print_words(words):
 	num_words = len(words)
 	print(str(num_words) + ' words')
 	print(words[:100])
+
+print_words(words_five)
 
 solved = False
 wordle = (None, None, None, None, None)
@@ -50,22 +50,17 @@ while not solved:
 	for result in results:
 		letter = result[0]
 		value = int(result[1])
-		print('Check: ' + letter + '(' + str(value) + ')')
 		if value == 0:
 			if attempted_word.count(letter) == 1:
 				words_five = [word for word in words_five if letter not in word]
 			else:
 				words_five = [word for word in words_five if letter != word[letter_num]]
 			# TODO: does not count none doubles
-			print_words(words_five)
 		if value == 1:
 			words_five = [word for word in words_five if letter in word]
-			print_words(words_five)
 			words_five = [word for word in words_five if letter != word[letter_num]]
-			print_words(words_five)
 		if value == 2:
 			words_five = [word for word in words_five if letter == word[letter_num]]
-			print_words(words_five)
 
 		letter_num = letter_num + 1
 
