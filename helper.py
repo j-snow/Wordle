@@ -1,14 +1,7 @@
-import nltk
-from nltk.corpus import words
-
 from functions import print_words, whittle_down
 
-nltk.download('words')
-# TODO Find a better source of words, some of these are not in wordle's dictionary
-word_list = words.words()
-
-five_letter_words = [word.lower() for word in word_list if len(word) == 5]
-five_letter_words = list(set(five_letter_words))
+words_file = open('words.txt', 'r')
+five_letter_words = words_file.read().split("\n")
 
 letter_frequencies = {}
 for word in five_letter_words:
