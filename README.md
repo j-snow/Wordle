@@ -1,3 +1,4 @@
+[![Python application](https://github.com/j-snow/Wordle/actions/workflows/python-app.yml/badge.svg)](https://github.com/j-snow/Wordle/actions/workflows/python-app.yml)
 # How to run
 Run the script `python helper.py`
 
